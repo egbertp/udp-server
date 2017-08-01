@@ -39,4 +39,9 @@ $ ./udp-server
 
 ### Use tha app
 
-ToDO
+Point your browser to `http://localhost:7000/`
+```
+{
+	message: "Hello world"
+}
+```
