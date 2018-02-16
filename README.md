@@ -34,14 +34,42 @@ $ make release
 
 Run the app
 ```
-$ ./udp-server
+$ ./udp-server --port 37059
 ```
 
-### Use tha app
-
-Point your browser to `http://localhost:7000/`
 ```
-{
-	message: "Hello world"
-}
+2018/02/16 14:33:57 UDP sever running on port: 37059
+```
+
+Send UDP package on OSx
+```
+echo -n "Hello" | nc -cu 127.0.0.1 37059
+```
+You will see:
+```
+2018/02/16 14:34:54 Received  Hello  from  127.0.0.1:58102
+```
+
+
+Send UDP package on Linux
+```
+echo "This is my data" > /dev/udp/127.0.0.1/37059
+```
+You will see:
+```
+2018/02/16 14:34:54 Received  This is my data  from  127.0.0.1:58102
+```
+
+
+Send UDP packages using my [udp-client](https://github.com/egbertp/udp-client) application
+```
+./udp-client --address 127.0.0.1 --port 37059
+
+2018/02/16 14:03:40 Sending packet with payload: 0 to 127.0.0.1:37059
+2018/02/16 14:03:41 Sending packet with payload: 1 to 127.0.0.1:37059
+2018/02/16 14:03:42 Sending packet with payload: 2 to 127.0.0.1:37059
+2018/02/16 14:03:43 Sending packet with payload: 3 to 127.0.0.1:37059
+2018/02/16 14:03:44 Sending packet with payload: 4 to 127.0.0.1:37059
+2018/02/16 14:03:45 Sending packet with payload: 5 to 127.0.0.1:37059
+2018/02/16 14:03:46 Sending packet with payload: 6 to 127.0.0.1:37059
 ```
